@@ -9,6 +9,6 @@
   <img src="https://img.shields.io/badge/Language-JavaScript-f0db4f.svg" /> <br/> <br/> <br/>
 </p>
 <p align="center">
-  <img src="https://github.com/cmcodes1/assignment/blob/master/preview.gif" /> <br/>
+  <img height="600px" width="300px" src="https://github.com/cmcodes1/assignment/blob/master/mockup.gif" /> <br/>
 </p>
 <h1 align="center"><b><a href="https://github.com/cmcodes1/assignment/raw/master/assignment.apk">CLICK HERE TO DOWNLOAD THE APK</a></b></h1>
