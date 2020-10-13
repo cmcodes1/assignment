@@ -4,16 +4,13 @@ import { FlatList, TextInput } from 'react-native-gesture-handler';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 
+function ApprovalsCards() {
 
+    const [hide, setHide] = useState(false);
 
-export default function NotificationsScreen() {
+    function hideCard() { setHide(true); }
 
-    const [hide] = useState(false);
-
-    const statement = {
-        sentence: '{0} Material Request',
-        boldText: ['Category']
-    };
+    const statement = { sentence: '{0} Material Request', boldText: ['Category'] };
 
     const applyBoldStyle = text => {
         let numberOfItemsAdded = 0;
@@ -22,35 +19,37 @@ export default function NotificationsScreen() {
         return <Text>{result}</Text>;
     };
 
-    var approvalsCards = [];
-    for (let i = 1; i <= 2; i++) {
-        approvalsCards.push(
-            <View key={i}>
-                <View style={styles.listItemContainer}>
-                    <View style={{ flex: 1, flexDirection: "row" }}>
-                        <View style={{ alignItems: "flex-start" }}>
-                            <Text style={{ fontSize: 15, color: "black" }}>{applyBoldStyle(statement)}</Text>
-                        </View>
-                        <View style={{ flex: 1, alignItems: "flex-end" }}>
-                            <FontAwesomeIcon icon={faTimes} size={20} color="red" onPress={() => hide()} />
-                        </View>
+    if (!hide) {
+        return (
+            <View style={styles.listItemContainer}>
+                <View style={{ flex: 1, flexDirection: "row" }}>
+                    <View style={{ alignItems: "flex-start" }}>
+                        <Text style={{ fontSize: 15, color: "black" }}>{applyBoldStyle(statement)}</Text>
                     </View>
-                    <Text style={{ marginTop: 30, fontSize: 20, fontWeight: "bold" }}>+91-9658745896</Text>
-                    <View style={{ flexDirection: "row", marginTop: 10 }}>
-                        <View style={{ alignItems: "flex-start" }}>
-                            <Text style={{ fontSize: 16 }}>07/07/2020</Text>
-                        </View>
-                        <View style={{ flex: 1, alignItems: "flex-end" }}>
-                            <Text style={{ fontSize: 16, fontWeight: "bold" }}>₹50,200</Text>
-                        </View>
+                    <View style={{ flex: 1, alignItems: "flex-end" }}>
+                        <FontAwesomeIcon icon={faTimes} size={20} color="red" onPress={() => hideCard()} />
+                    </View>
+                </View>
+                <Text style={{ marginTop: 30, fontSize: 20, fontWeight: "bold" }}>+91-9658745896</Text>
+                <View style={{ flexDirection: "row", marginTop: 10 }}>
+                    <View style={{ alignItems: "flex-start" }}>
+                        <Text style={{ fontSize: 16 }}>07/07/2020</Text>
+                    </View>
+                    <View style={{ flex: 1, alignItems: "flex-end" }}>
+                        <Text style={{ fontSize: 16, fontWeight: "bold" }}>₹50,200</Text>
                     </View>
                 </View>
             </View>
         );
     }
+    else { return null; }
+
+}
+
+export default function NotificationsScreen() {
 
     var tasksCards = [];
-    tasksCards.push(<View key={0}><Text style={{ fontSize: 16, marginLeft: 5 }}>23/06/2020</Text></View>);
+    tasksCards.push(<View key={0}><Text style={{ fontSize: 16 }}>23/06/2020</Text></View>);
     for (let i = 1; i <= 2; i++) {
         tasksCards.push(
             <View key={i}>
@@ -92,7 +91,8 @@ export default function NotificationsScreen() {
             </View>
 
             <View style={styles.list}>
-                {approvalsCards}
+                <ApprovalsCards />
+                <ApprovalsCards />
             </View>
 
             <View style={{ flexDirection: "row", alignSelf: "flex-start" }}>
@@ -103,11 +103,7 @@ export default function NotificationsScreen() {
                 showsVerticalScrollIndicator={false}
                 style={{ width: '90%' }}
                 data={tasksCards}
-                renderItem={({ item, index }) => {
-                    return (
-                        <View>{item}</View>
-                    );
-                }}
+                renderItem={({ item, index }) => { return <View>{item}</View> }}
                 keyExtractor={(item, index) => index.toString()}
             />
 
