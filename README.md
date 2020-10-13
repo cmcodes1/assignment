@@ -8,9 +8,7 @@
   <img src="https://img.shields.io/badge/Framework-React_Native-61dbfb.svg" />
   <img src="https://img.shields.io/badge/Language-JavaScript-f0db4f.svg" /> <br/> <br/> <br/>
 </p>
-<!--
-  <p align="center">
-    <img height="600px" width="300px" src="" /> <br/>
-  </p>
--->
+<p align="center">
+  <img src="https://github.com/cmcodes1/assignment/blob/master/preview.gif" /> <br/>
+</p>
 <h1 align="center"><b><a href="https://github.com/cmcodes1/assignment/raw/master/assignment.apk">CLICK HERE TO DOWNLOAD THE APK</a></b></h1>
