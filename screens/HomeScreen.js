@@ -1,10 +1,24 @@
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Share } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faPhone, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { useNavigation } from '@react-navigation/native';
+import call from 'react-native-phone-call';
 
 export default function HomeScreen() {
+
+  const [inputValue] = useState('9012913225');
+
+  const triggerCall = () => {
+    if (inputValue.length != 10) { alert('Please enter correct contact number'); return; }
+    const args = { number: inputValue, prompt: true, };
+    call(args).catch(console.error);
+  };
+
+  const onShare = async () => {
+    try { await Share.share({ message: 'Hello there! This is a dummy text to share address. Have a nice day! :)' }); }
+    catch (error) { alert(error.message); }
+  };
 
   const navigation = useNavigation()
 
@@ -42,7 +56,7 @@ export default function HomeScreen() {
           <Text style={{ fontSize: 20 }}>Site Engineer Name</Text>
         </View>
         <View style={styles.headerIcon}>
-          <FontAwesomeIcon icon={faPhone} size={25} color="black" />
+          <FontAwesomeIcon icon={faPhone} size={25} color="black" onPress={() => triggerCall()} />
         </View>
       </View>
 
@@ -56,7 +70,7 @@ export default function HomeScreen() {
           <Text style={{ fontSize: 20, paddingLeft: 30 }}>Address</Text>
         </View>
         <View style={styles.headerIcon}>
-          <FontAwesomeIcon icon={faShareAlt} size={25} color="black" />
+          <FontAwesomeIcon icon={faShareAlt} size={25} color="black" onPress={() => onShare()} />
         </View>
       </View>
 
