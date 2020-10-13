@@ -1,6 +1,6 @@
 <h1 align="center"> React Native app assignment </h1>
 <p align="center">
-  This repo contains the source code for the given app dev frontend assignment. <br/> <br/>
+  This repo contains the source code for the given frontend app dev assignment. <br/> <br/>
   <img src="https://img.shields.io/badge/Platform-Android-brightgreen.svg" />
   <img src="https://img.shields.io/badge/Version-1.0-green.svg" />
   <img src="https://img.shields.io/badge/App_Size-25_MB-orange.svg" />
