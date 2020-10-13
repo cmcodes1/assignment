@@ -15,7 +15,7 @@ function ApprovalsCards() {
     const applyBoldStyle = text => {
         let numberOfItemsAdded = 0;
         const result = text.sentence.split(/\{\d+\}/);
-        text.boldText.forEach((boldText, i) => result.splice(++numberOfItemsAdded + i, 0, <Text style={{ fontWeight: 'bold' }}>{boldText}</Text>));
+        text.boldText.forEach((boldText, i) => result.splice(++numberOfItemsAdded + i, 0, <Text style={{ fontWeight: 'bold' }} key={i}>{boldText}</Text>));
         return <Text>{result}</Text>;
     };
 
