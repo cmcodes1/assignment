@@ -15,7 +15,7 @@ export default function HomeScreen() {
   var minutes = ('0' + new Date().getMinutes().toString()).slice(-2);
 
   var cards = [];
-  for (let i = 0; i < 3; i++) {
+  for (let i = 1; i <= 3; i++) {
     cards.push(
       <View key={i}>
         <View style={styles.listItemContainer}>

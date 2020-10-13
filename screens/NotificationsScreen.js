@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { FlatList, TextInput } from 'react-native-gesture-handler';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 export default function NotificationsScreen() {
 
@@ -23,8 +23,15 @@ export default function NotificationsScreen() {
         approvalsCards.push(
             <View key={i}>
                 <View style={styles.listItemContainer}>
-                    <Text style={{ fontSize: 15, color: "black" }}>{applyBoldStyle(statement)}</Text>
-                    <Text style={{ marginTop: 10, fontSize: 20, fontWeight: "bold" }}>+91-9658745896</Text>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                        <View style={{ alignItems: "flex-start" }}>
+                            <Text style={{ fontSize: 15, color: "black" }}>{applyBoldStyle(statement)}</Text>
+                        </View>
+                        <View style={{ flex: 1, alignItems: "flex-end" }}>
+                            <FontAwesomeIcon icon={faTimes} size={20} color="red" />
+                        </View>
+                    </View>
+                    <Text style={{ marginTop: 30, fontSize: 20, fontWeight: "bold" }}>+91-9658745896</Text>
                     <View style={{ flexDirection: "row", marginTop: 10 }}>
                         <View style={{ alignItems: "flex-start" }}>
                             <Text style={{ fontSize: 20 }}>07/07/2020</Text>
