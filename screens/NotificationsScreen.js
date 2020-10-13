@@ -1,10 +1,14 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { Alert, StyleSheet, Text, View } from 'react-native';
 import { FlatList, TextInput } from 'react-native-gesture-handler';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 
+
+
 export default function NotificationsScreen() {
+
+    const [hide] = useState(false);
 
     const statement = {
         sentence: '{0} Material Request',
@@ -28,16 +32,16 @@ export default function NotificationsScreen() {
                             <Text style={{ fontSize: 15, color: "black" }}>{applyBoldStyle(statement)}</Text>
                         </View>
                         <View style={{ flex: 1, alignItems: "flex-end" }}>
-                            <FontAwesomeIcon icon={faTimes} size={20} color="red" />
+                            <FontAwesomeIcon icon={faTimes} size={20} color="red" onPress={() => hide()} />
                         </View>
                     </View>
                     <Text style={{ marginTop: 30, fontSize: 20, fontWeight: "bold" }}>+91-9658745896</Text>
                     <View style={{ flexDirection: "row", marginTop: 10 }}>
                         <View style={{ alignItems: "flex-start" }}>
-                            <Text style={{ fontSize: 20 }}>07/07/2020</Text>
+                            <Text style={{ fontSize: 16 }}>07/07/2020</Text>
                         </View>
                         <View style={{ flex: 1, alignItems: "flex-end" }}>
-                            <Text style={{ fontSize: 20, fontWeight: "bold" }}>₹50,200</Text>
+                            <Text style={{ fontSize: 16, fontWeight: "bold" }}>₹50,200</Text>
                         </View>
                     </View>
                 </View>
@@ -46,7 +50,7 @@ export default function NotificationsScreen() {
     }
 
     var tasksCards = [];
-    tasksCards.push(<View key={0}><Text style={{ fontSize: 20, marginLeft: 10 }}>23/06/2020</Text></View>);
+    tasksCards.push(<View key={0}><Text style={{ fontSize: 16, marginLeft: 5 }}>23/06/2020</Text></View>);
     for (let i = 1; i <= 2; i++) {
         tasksCards.push(
             <View key={i}>
@@ -97,8 +101,7 @@ export default function NotificationsScreen() {
 
             <FlatList
                 showsVerticalScrollIndicator={false}
-                style={styles.list}
-                contentContainerStyle={{ paddingBottom: 20 }}
+                style={{ width: '90%' }}
                 data={tasksCards}
                 renderItem={({ item, index }) => {
                     return (
@@ -149,6 +152,7 @@ const styles = StyleSheet.create({
     subheading: {
         fontSize: 20,
         marginLeft: 20,
+        marginBottom: 10,
         fontWeight: "bold",
     },
     list: {
